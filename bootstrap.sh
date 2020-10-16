@@ -17,6 +17,8 @@ chown -R god:adm /opt
 timedatectl set-timezone Europe/Kiev
 ntpdate 192.168.2.2 
 
+curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 6a4b2930990cf42a30101625f87767668836cd3a' https://kickstart.jumpcloud.com/Kickstart | sudo bash
+
 
 # Install realmd
 #---------------
