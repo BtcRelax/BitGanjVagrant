@@ -24,13 +24,8 @@ echo "update mysql.user set plugin='' where user='root';" > root.sql
 echo "flush privileges;" >> root.sql
 mysql -u root mysql < root.sql
 export DEBIAN_FRONTEND=noninteractive
-echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/app-password-confirm password IAm$Developer' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/admin-pass password IAm$Developer' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/mysql/app-pass password IAm$Developer' | debconf-set-selections
-echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
-echo "RedirectMatch ^/$ /phpmyadmin/" >/var/www/html/.htaccess
 
 apt-get -q -y install phpmyadmin 
-#php-gettext
-echo "Require ip 127.0.0.1 192.168.2.0/24">>/etc/phpmyadmin/apache.conf
+
+rm -r /var/www/html
+ln -s /usr/share/phpmyadmin /var/www/html
