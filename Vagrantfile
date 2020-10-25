@@ -34,6 +34,19 @@ config.vm.define "node2" do |node2|
       #	vb.memory = "2048"
     end
 end
+
+config.vm.define "node3" do |node3|
+    node3.vm.hostname = "router"
+    node3.vm.base_mac  = "080027000003"
+	node3.vm.network "public_network",  bridge: "NVIDIA nForce Networking Controller", :mac=> "080027000003", ip: "192.168.2.104", hostname: true
+	node3.vm.provision "shell", path: "bootstrap_router.sh"
+	
+    node3.vm.provider "virtualbox" do |vb3|
+      vb3.name = "router"
+      vb3.memory = "512"
+    end
+end
+  
   
 config.vm.box_check_update = false
 
