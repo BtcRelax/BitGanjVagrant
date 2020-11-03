@@ -20,9 +20,9 @@ php -r "unlink('composer-setup.php');"
 echo "zend_extension=/usr/lib/php/20190902/xdebug.so">>/etc/php/7.4/apache2/php.ini
 echo "xdebug.remote_enable=on">>/etc/php/7.4/apache2/php.ini
 echo "xdebug.remote_log="/var/log/xdebug.log"">>/etc/php/7.4/apache2/php.ini
-echo "xdebug.remote_host=192.168.2.100">>/etc/php/7.4/apache2/php.ini
+echo "xdebug.remote_host=127.0.0.1">>/etc/php/7.4/apache2/php.ini
 echo "xdebug.remote_handler=dbgp">>/etc/php/7.4/apache2/php.ini
-echo "xdebug.remote_port=9000">>/etc/php/7.4/apache2/php.ini
+echo "xdebug.remote_port=9004">>/etc/php/7.4/apache2/php.ini
 
 a2ensite default-ssl
 a2enmod ssl
