@@ -24,19 +24,23 @@ echo "update mysql.user set plugin='' where user='root';" > root.sql
 echo "flush privileges;" >> root.sql
 mysql -u root mysql < root.sql
 export DEBIAN_FRONTEND=noninteractive
-#echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-selections
-#echo 'phpmyadmin phpmyadmin/app-password-confirm password IAm$Developer' | debconf-set-selections
-#echo 'phpmyadmin phpmyadmin/mysql/admin-pass password IAm$Developer' | debconf-set-selections
-#echo 'phpmyadmin phpmyadmin/mysql/app-pass password IAm$Developer' | debconf-set-selections
-#echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
-#echo "RedirectMatch ^/$ /phpmyadmin/" >/var/www/html/.htaccess
 
 
 apt-get -q -y install phpmyadmin 
 
 rm -r /var/www/html
 ln -s /usr/share/phpmyadmin /var/www/html
-#mv /etc/phpmyadmin/config.inc.php /etc/phpmyadmin/config.inc.php.bak
 
-#php-gettext
-#echo "Require ip 127.0.0.1 192.168.2.0/24">>/etc/phpmyadmin/apache.conf
+# Upgrade phpMyAdmin
+#-------------------------
+sudo mv /usr/share/phpmyadmin/ /usr/share/phpmyadmin.bak
+sudo mkdir /usr/share/phpmyadmin/
+cd /usr/share/phpmyadmin/
+sudo wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz
+sudo tar xzf phpMyAdmin-5.0.4-all-languages.tar.gz
+sudo mv phpMyAdmin-5.0.4-all-languages/* /usr/share/phpmyadmin
+cp /vagrant/vendor_config.php /usr/share/phpmyadmin/libraries/vendor_config.php
+
+sudo rm /usr/share/phpmyadmin/phpMyAdmin-5.0.4-all-languages.tar.gz
+sudo rm -rf /usr/share/phpmyadmin/phpMyAdmin-5.0.4-all-languages
+sudo rm -rf /usr/share/phpmyadmin.bak
