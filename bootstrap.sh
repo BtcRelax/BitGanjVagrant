@@ -15,7 +15,7 @@ cp /vagrant/authorized_keys /home/god/.ssh/authorized_keys
 apt-get -y install python apt-show-versions libapt-pkg-perl libauthen-pam-perl libio-pty-perl libnet-ssleay-perl unzip mc ntpdate 
 chown -R god:adm /opt
 timedatectl set-timezone Europe/Kiev
-ntpdate 192.168.2.2 
+ntpdate 192.168.1.1 
 
 curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 6a4b2930990cf42a30101625f87767668836cd3a' https://kickstart.jumpcloud.com/Kickstart | sudo bash
 
