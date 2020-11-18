@@ -44,3 +44,9 @@ cp /vagrant/vendor_config.php /usr/share/phpmyadmin/libraries/vendor_config.php
 sudo rm /usr/share/phpmyadmin/phpMyAdmin-5.0.4-all-languages.tar.gz
 sudo rm -rf /usr/share/phpmyadmin/phpMyAdmin-5.0.4-all-languages
 sudo rm -rf /usr/share/phpmyadmin.bak
+
+# Allowing configure server
+#--------------------------
+
+chown -R root:adm /etc/mysql/mariadb.conf.d/
+chmod -R 775  /etc/mysql/mariadb.conf.d/
