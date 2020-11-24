@@ -8,8 +8,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "hashicorp/bionic64"
-  config.vm.provision :shell, :run => 'always', :path => "bootstrap.sh", :privileged => true
+config.vm.box = "hashicorp/bionic64"
+config.vm.provision :shell, :run => 'always', :path => "bootstrap.sh", :privileged => true
 
 config.vm.define "node1" do |node1|
     node1.vm.hostname = "www"
@@ -36,8 +36,9 @@ config.vm.define "node2" do |node2|
 end
 
 config.vm.define "node3" do |node3|
-    node3.vm.hostname = "router"
-    node3.vm.base_mac  = "080027000003"
+  node3.vm.box = "bento/ubuntu-20.04"
+  node3.vm.hostname = "router"
+  node3.vm.base_mac  = "080027000003"
 	node3.vm.network "public_network",  bridge: "NVIDIA nForce Networking Controller", :mac=> "080027000003", ip: "192.168.2.104", hostname: true
 	node3.vm.provision "shell", path: "bootstrap_router.sh"
 	
