@@ -17,6 +17,7 @@ php -r "unlink('composer-setup.php');"
 
 a2ensite default-ssl
 a2enmod ssl
+a2enmod rewrite
 systemctl restart apache2
 
 apt -y install mariadb-server
