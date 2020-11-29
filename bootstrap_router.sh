@@ -9,15 +9,19 @@
 ### Disable ipv6
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf 
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p
 
 ### Route web traffic with NGinx
 apt-get -y install nginx
 systemctl start nginx
 systemctl enable nginx
 
+### Install tools
+apt-get install inetutils-traceroute
+
 #apt -y install certbot
-sudo apt install easy-rsa
+apt install easy-rsa
 cd /opt
 wget https://www.apachefriends.org/xampp-files/7.4.11/xampp-linux-x64-7.4.11-0-installer.run
 chmod 755 xampp-linux-x64-7.4.11-0-installer.run
-sudo ./xampp-linux-x64-7.4.11-0-installer.run --mode unattended
+./xampp-linux-x64-7.4.11-0-installer.run --mode unattended
