@@ -27,6 +27,7 @@ echo "xdebug.remote_port=9004">>/etc/php/7.4/apache2/php.ini
 a2ensite default-ssl
 a2enmod ssl
 a2enmod rewrite
+a2enmod vhost_alias
 systemctl restart apache2
 
 rm -rf /var/www/html
