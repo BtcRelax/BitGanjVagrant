@@ -17,10 +17,11 @@ systemctl start nginx
 systemctl enable nginx
 
 ### Install tools
-apt-get install inetutils-traceroute
+apt-get -y install inetutils-traceroute
+apt-get -y install net-tools
 
 #apt -y install certbot
-apt install easy-rsa
+apt -y install easy-rsa
 cd /opt
 wget https://www.apachefriends.org/xampp-files/7.4.11/xampp-linux-x64-7.4.11-0-installer.run
 chmod 755 xampp-linux-x64-7.4.11-0-installer.run
