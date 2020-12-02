@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
 config.vm.box = "hashicorp/bionic64"
 config.vm.provision :shell, :run => 'always', :path => "bootstrap.sh", :privileged => true
+config.vm.boot_timeout = 900;
 
 config.vm.define "node1" do |node1|
     node1.vm.hostname = "www"
