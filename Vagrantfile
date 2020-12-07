@@ -15,7 +15,7 @@ config.vm.boot_timeout = 900;
 config.vm.define "node1" do |node1|
     node1.vm.hostname = "www"
 	node1.vm.base_mac  = "080027000001"
-	node1.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000001", ip: "10.0.5.102", hostname: true
+	node1.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000001", ip: "10.0.0.102", hostname: true
     node1.vm.provision "shell", path: "bootstrap_apache.sh"
 		
     node1.vm.provider "virtualbox" do |vb1|
@@ -27,7 +27,7 @@ end
 config.vm.define "node2" do |node2|
     node2.vm.hostname = "db"
     node2.vm.base_mac  = "080027000002"
-	node2.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000002", ip: "10.0.5.103", hostname: true
+	node2.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000002", ip: "10.0.0.103", hostname: true
 	node2.vm.provision "shell", path: "bootstrap_db.sh"
 	
     node2.vm.provider "virtualbox" do |vb2|
@@ -37,11 +37,11 @@ config.vm.define "node2" do |node2|
 end
 
 config.vm.define "node3" do |node3|
-  node3.vm.box = "bento/ubuntu-20.04"
-  node3.vm.hostname = "router"
-  node3.vm.base_mac  = "080027000003"
-	node3.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000003", ip: "10.0.5.104", hostname: true
-	node3.vm.provision "shell", path: "bootstrap_router.sh"
+    node3.vm.box = "bento/ubuntu-20.04"
+    node3.vm.hostname = "router"
+    node3.vm.base_mac  = "080027000003"
+    node3.vm.network "public_network",  bridge: "Oracle VirtIO Ethernet Adapter", :mac=> "080027000003", ip: "10.0.0.104", hostname: true
+    node3.vm.provision "shell", path: "bootstrap_router.sh"
 	
     node3.vm.provider "virtualbox" do |vb3|
       vb3.name = "router"
