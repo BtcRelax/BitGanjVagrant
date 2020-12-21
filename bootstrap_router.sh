@@ -18,6 +18,7 @@ systemctl enable nginx
 
 ### Install tools
 apt-get -y install inetutils-traceroute
+apt-get -y install traceroute
 apt-get -y install net-tools
 
 #apt -y install certbot
