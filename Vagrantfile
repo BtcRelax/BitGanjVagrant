@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
 config.vm.box = "bento/ubuntu-20.04"
-config.vm.provision :shell, :run => 'always', :path => "bootstrap.sh", :privileged => true
+config.vm.provision :shell, :path => "bootstrap.sh", :privileged => true
 config.vm.boot_timeout = 900;
 
 config.vm.define "node1" do |node1|
@@ -44,7 +44,7 @@ config.vm.define "node3" do |node3|
 	
     node3.vm.provider "virtualbox" do |vb3|
       vb3.name = "router"
-      vb3.memory = "512"
+      vb3.memory = "1024"
     end
 end
   
