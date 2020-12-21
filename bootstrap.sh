@@ -20,6 +20,8 @@ ntpdate 0.ua.pool.ntp.org
 curl -s https://install.zerotier.com | sudo bash
 #curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 6a4b2930990cf42a30101625f87767668836cd3a' https://kickstart.jumpcloud.com/Kickstart | sudo bash
 
+apt -y install cockpit  
+systemctl enable cockpit.socket 
 
 # Install realmd
 #---------------
