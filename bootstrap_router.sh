@@ -11,6 +11,9 @@ echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p
 
+### Install ZeroTier
+curl -s https://install.zerotier.com | sudo bash
+
 ### Route web traffic with NGinx
 apt-get -y install nginx
 systemctl start nginx
