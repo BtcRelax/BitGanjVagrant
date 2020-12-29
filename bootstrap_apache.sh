@@ -31,4 +31,4 @@ a2enmod vhost_alias
 systemctl restart apache2
 
 rm -rf /var/www/html
-sudo -u god git clone https://github.com/BtcRelax/AppRouter /var/www/html
+sudo -u god git clone https://github.com/CrypTopUpUa/AppRouter /var/www/html
