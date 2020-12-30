@@ -1,6 +1,7 @@
 # Install Apache 
 #---------------
 apt-get -y install apache2
+usermod -aG www-data god
 chown -R god:www-data /var/www
 
 # Install php

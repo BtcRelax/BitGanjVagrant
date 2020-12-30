@@ -7,7 +7,9 @@ apt-get update
 # Create main user
 # ---------------
 adduser --quiet --disabled-password god
-usermod -G sudo,adm,www-data,mysql god
+usermod -aG sudo god
+usermod -aG adm	god
+
 cd /home/god
 mkdir .ssh
 mkdir public_html
