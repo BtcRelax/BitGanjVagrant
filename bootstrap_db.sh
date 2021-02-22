@@ -1,7 +1,6 @@
 # Install Apache 
 #---------------
 apt-get -y install apache2
-usermod -aG mysql god
 chown -R god:www-data /var/www
 
 # Install php
@@ -21,15 +20,15 @@ a2enmod ssl
 a2enmod rewrite
 systemctl restart apache2
 
+# Install database server
+#---------------------------
 apt -y install mariadb-server
 echo "update mysql.user set plugin='' where user='root';" > root.sql
 echo "flush privileges;" >> root.sql
 mysql -u root mysql < root.sql
 export DEBIAN_FRONTEND=noninteractive
-
-
+usermod -aG mysql god
 apt-get -q -y install phpmyadmin 
-
 rm -r /var/www/html
 ln -s /usr/share/phpmyadmin /var/www/html
 
