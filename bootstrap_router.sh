@@ -24,6 +24,12 @@ apt-get -y install inetutils-traceroute
 apt-get -y install traceroute
 apt-get -y install net-tools
 
+### Install webmin
+apt -y install python apt-show-versions libapt-pkg-perl libauthen-pam-perl libio-pty-perl libnet-ssleay-perl
+curl -L -O http://www.webmin.com/download/deb/webmin-current.deb
+dpkg -i webmin-current.deb
+systemctl restart webmin
+
 #apt -y install certbot
 apt -y install easy-rsa
 cd /opt
