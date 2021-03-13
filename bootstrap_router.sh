@@ -28,11 +28,14 @@ apt-get -y install net-tools
 apt -y install python apt-show-versions libapt-pkg-perl libauthen-pam-perl libio-pty-perl libnet-ssleay-perl
 curl -L -O http://www.webmin.com/download/deb/webmin-current.deb
 dpkg -i webmin-current.deb
+echo "allow=127.0.0.1 192.168.0.0/16" >> /etc/webmin/miniserv.conf 
 systemctl restart webmin
+ufw allow 10000
 
 #apt -y install certbot
 apt -y install easy-rsa
 cd /opt
-wget https://www.apachefriends.org/xampp-files/7.4.11/xampp-linux-x64-7.4.11-0-installer.run
-chmod 755 xampp-linux-x64-7.4.11-0-installer.run
-./xampp-linux-x64-7.4.11-0-installer.run --mode unattended
+
+#wget https://www.apachefriends.org/xampp-files/7.4.11/xampp-linux-x64-7.4.11-0-installer.run
+#chmod 755 xampp-linux-x64-7.4.11-0-installer.run
+#./xampp-linux-x64-7.4.11-0-installer.run --mode unattended
