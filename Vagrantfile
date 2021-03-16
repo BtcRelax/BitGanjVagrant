@@ -32,7 +32,7 @@ config.vm.define "node2" do |node2|
 	
   node2.vm.provider "virtualbox" do |vb2|
     vb2.name = "db"
-      #	vb.memory = "2048"
+    vb.memory = "4096"
   end
 end
 
