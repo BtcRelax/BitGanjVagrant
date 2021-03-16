@@ -32,7 +32,6 @@ config.vm.define "node2" do |node2|
 	
   node2.vm.provider "virtualbox" do |vb2|
     vb2.name = "db"
-      #	vb.memory = "2048"
   end
 end
 
@@ -44,6 +43,7 @@ config.vm.define "node3" do |node3|
 	
   node3.vm.provider "virtualbox" do |vb3|
     vb3.name = "router"
+    vb3.memory = "4096"
   end
 end
   
