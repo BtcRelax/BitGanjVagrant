@@ -24,7 +24,10 @@ ntpdate 0.ua.pool.ntp.org
 #curl --tlsv1.2 --silent --show-error --header 'x-connect-key: 6a4b2930990cf42a30101625f87767668836cd3a' https://kickstart.jumpcloud.com/Kickstart | sudo bash
 
 apt -y install cockpit  
-systemctl enable cockpit.socket 
+systemctl enable cockpit.socket
+systemctl disable network-manager.service 
+systemctl stop network-manager.service  
+
 apt -y install ufw
 ufw allow 22
 ufw allow 80
