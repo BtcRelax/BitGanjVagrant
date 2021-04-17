@@ -11,9 +11,6 @@ echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sysctl -p
 
-### Install ZeroTier
-curl -s https://install.zerotier.com | sudo bash
-
 ### Route web traffic with NGinx
 apt-get -y install nginx
 systemctl start nginx
@@ -22,7 +19,9 @@ systemctl enable nginx
 ### Install tools
 apt-get -y install inetutils-traceroute
 apt-get -y install traceroute
+apt-get -y install  bridge-utils
 apt-get -y install net-tools
+
 
 ### Install webmin
 apt -y install python apt-show-versions libapt-pkg-perl libauthen-pam-perl libio-pty-perl libnet-ssleay-perl
@@ -35,4 +34,9 @@ ufw allow 10000
 apt -y install certbot
 apt -y install easy-rsa
 cd /opt
+
+### Install ZeroTier
+curl -s https://install.zerotier.com | sudo bash
+sudo zerotier-cli join 9bee8941b534d058
+sudo zerotier-cli set 9bee8941b534d058 allowManaged=0
 

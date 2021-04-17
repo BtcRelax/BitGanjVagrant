@@ -25,8 +25,8 @@ ntpdate 0.ua.pool.ntp.org
 
 apt -y install cockpit  
 systemctl enable cockpit.socket
-systemctl disable network-manager.service 
-systemctl stop network-manager.service  
+#systemctl disable network-manager.service 
+#systemctl stop network-manager.service  
 
 apt -y install ufw
 ufw allow 22
